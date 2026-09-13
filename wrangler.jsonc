@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "arra-memory-lab",
+  "compatibility_date": "2026-08-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/server.ts",
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/mcp", "/authorize", "/oauth/*", "/.well-known/*"]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "arra-memory-lab",
+      "database_id": "82562a59-8702-4791-84c4-a40d11c9a0c2",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "4bbb8a01d1574eb4ae4d47417dc43bcf"
+    }
+  ],
+  "vars": {
+    "SEMANTIC_MAX_DISTANCE": "0.7"
+  }
+}
